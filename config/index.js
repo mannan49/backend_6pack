@@ -7,6 +7,7 @@ const config = {
   MONGO_URL: process.env.MONGO_URL,
   JWT_SECRET: process.env.JWT_SECRET,
   JWT_EXPIRE: process.env.JWT_EXPIRE,
+  COOKIE_EXPIRE: process.env.COOKIE_EXPIRE,
 };
 
 module.exports = config;
