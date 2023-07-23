@@ -2,8 +2,8 @@ const express = require("express");
 const { PORT } = require("./config");
 const colors = require("colors");
 const connectDB = require("./config/connectDB");
-const errorMiddleware = require("./middlewares/error");
 const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
 app = express();
 
 // Handling Uncaught Exception
@@ -17,6 +17,7 @@ process.on("uncaughtException", (err) => {
 connectDB();
 // middlewares
 app.use(express.json());
+app.use(cookieParser());
 app.use(morgan("dev"));
 
 // routes
@@ -26,6 +27,7 @@ app.use("/api/v1/products", productRoute);
 app.use("/api/v1/user", userRoute);
 
 // Middleware for error
+const errorMiddleware = require("./middlewares/error");
 app.use(errorMiddleware);
 
 const server = app.listen(PORT, () => {
