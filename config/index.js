@@ -6,6 +6,7 @@ const config = {
   DEV_MODE: process.env.DEV_MODE,
   MONGO_URL: process.env.MONGO_URL,
   JWT_SECRET: process.env.JWT_SECRET,
+  JWT_EXPIRE: process.env.JWT_EXPIRE,
 };
 
 module.exports = config;

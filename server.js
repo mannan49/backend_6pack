@@ -2,7 +2,6 @@ const express = require("express");
 const { PORT } = require("./config");
 const colors = require("colors");
 const connectDB = require("./config/connectDB");
-const productRoute = require("./routes/productRoute");
 const errorMiddleware = require("./middlewares/error");
 const morgan = require("morgan");
 app = express();
@@ -21,7 +20,10 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // routes
+const productRoute = require("./routes/productRoute");
+const userRoute = require("./routes/userRoutes");
 app.use("/api/v1/products", productRoute);
+app.use("/api/v1/user", userRoute);
 
 // Middleware for error
 app.use(errorMiddleware);
