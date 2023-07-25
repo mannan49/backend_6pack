@@ -13,19 +13,19 @@ const router = express.Router();
 router.get("/", getAllProducts);
 router.get("/product-details/:id", getProductDetails);
 router.post(
-  "/new",
+  "/admin/new",
   isAuthenticatedUser,
   authorizeRoles("admin"),
   createProduct
 );
 router.put(
-  "/update/:id",
+  "/admin/update/:id",
   isAuthenticatedUser,
   authorizeRoles("admin"),
   updateProduct
 );
 router.delete(
-  "/delete/:id",
+  "/admin/delete/:id",
   isAuthenticatedUser,
   authorizeRoles("admin"),
   deleteProduct
