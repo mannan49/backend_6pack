@@ -10,7 +10,7 @@ module.exports = (err, req, res, next) => {
     err = new ErrorHandler(message, 400);
   }
   // Monogoose Duplicate key Error
-  if ((err.code = 11000)) {
+  if (err.code === 11000) {
     const message = `Duplicate ${Object.keys(err.keyValue)} entered.`;
     err = new ErrorHandler(message, 400);
   }
