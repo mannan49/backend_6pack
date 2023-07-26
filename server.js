@@ -23,8 +23,10 @@ app.use(morgan("dev"));
 // routes
 const productRoute = require("./routes/productRoute");
 const userRoute = require("./routes/userRoutes");
+const orderRoute = require("./routes/orderRoute");
 app.use("/api/v1/products", productRoute);
 app.use("/api/v1/user", userRoute);
+app.use("/api/v1/order", orderRoute);
 
 // Middleware for error
 const errorMiddleware = require("./middlewares/error");
